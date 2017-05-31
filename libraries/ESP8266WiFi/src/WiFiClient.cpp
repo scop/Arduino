@@ -70,8 +70,8 @@ WiFiClient::~WiFiClient()
 }
 
 WiFiClient::WiFiClient(const WiFiClient& other)
+: _client(other._client)
 {
-    _client = other._client;
     _timeout = other._timeout;
     _localPort = other._localPort;
     if (_client)

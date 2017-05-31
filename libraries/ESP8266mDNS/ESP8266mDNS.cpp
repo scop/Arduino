@@ -118,14 +118,17 @@ struct MDNSQuery {
 };
 
 
-MDNSResponder::MDNSResponder() : _conn(0) { 
-  _services = 0;
-  _instanceName = ""; 
-  _answers = 0;
-  _query = 0;
-  _newQuery = false;
-  _waitingForAnswers = false;
+MDNSResponder::MDNSResponder()
+: _services(0)
+, _conn(0)
+, _instanceName("")
+, _answers(0)
+, _query(0)
+, _newQuery(false)
+, _waitingForAnswers(false)
+{
 }
+
 MDNSResponder::~MDNSResponder() {
   if (_query != 0) {
     os_free(_query);

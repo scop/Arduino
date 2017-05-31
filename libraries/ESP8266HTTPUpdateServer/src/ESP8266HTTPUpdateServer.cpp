@@ -17,12 +17,12 @@ static const char successResponse[] PROGMEM =
   "<META http-equiv=\"refresh\" content=\"15;URL=/\">Update Success! Rebooting...\n";
 
 ESP8266HTTPUpdateServer::ESP8266HTTPUpdateServer(bool serial_debug)
+: _serial_output(serial_debug)
+, _server(NULL)
+, _username(NULL)
+, _password(NULL)
+, _authenticated(false)
 {
-  _serial_output = serial_debug;
-  _server = NULL;
-  _username = NULL;
-  _password = NULL;
-  _authenticated = false;
 }
 
 void ESP8266HTTPUpdateServer::setup(ESP8266WebServer *server, const char * path, const char * username, const char * password)

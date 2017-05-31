@@ -440,9 +440,8 @@ WiFiClientSecure::~WiFiClientSecure()
 }
 
 WiFiClientSecure::WiFiClientSecure(const WiFiClientSecure& other)
-    : WiFiClient(static_cast<const WiFiClient&>(other))
+    : WiFiClient(static_cast<const WiFiClient&>(other)), _ssl(other._ssl)
 {
-    _ssl = other._ssl;
     if (_ssl) {
         _ssl->ref();
     }

@@ -50,9 +50,8 @@ WiFiUDP::WiFiUDP() : _ctx(0)
     WiFiUDP::_add(this);
 }
 
-WiFiUDP::WiFiUDP(const WiFiUDP& other)
+WiFiUDP::WiFiUDP(const WiFiUDP& other) : _ctx(other._ctx)
 {
-    _ctx = other._ctx;
     if (_ctx)
         _ctx->ref();
     WiFiUDP::_add(this);

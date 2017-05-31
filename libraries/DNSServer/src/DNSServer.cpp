@@ -4,9 +4,9 @@
 
 
 DNSServer::DNSServer()
+: _ttl(htonl(60))
+, _errorReplyCode(DNSReplyCode::NonExistentDomain)
 {
-  _ttl = htonl(60);
-  _errorReplyCode = DNSReplyCode::NonExistentDomain;
 }
 
 bool DNSServer::start(const uint16_t &port, const String &domainName,

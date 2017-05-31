@@ -18,9 +18,10 @@
    uint8_t nfilecount=0;
 */
 
-File::File(SdFile f, const char *n) {
-  // oh man you are kidding me, new() doesnt exist? Ok we do it by hand!
-  _file = (SdFile *)malloc(sizeof(SdFile)); 
+File::File(SdFile f, const char *n)
+// oh man you are kidding me, new() doesnt exist? Ok we do it by hand!
+: _file((SdFile *)malloc(sizeof(SdFile)))
+{
   if (_file) {
     memcpy(_file, &f, sizeof(SdFile));
     
@@ -37,8 +38,7 @@ File::File(SdFile f, const char *n) {
   }
 }
 
-File::File(void) {
-  _file = 0;
+File::File(void) : _file(0) {
   _name[0] = 0;
   //Serial.print("Created empty file object");
 }

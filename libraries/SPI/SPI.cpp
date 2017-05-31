@@ -39,9 +39,7 @@ typedef union {
         };
 } spiClk_t;
 
-SPIClass::SPIClass() {
-    useHwCs = false;
-    pinSet = SPI_PINS_HSPI;
+SPIClass::SPIClass() : useHwCs(false), pinSet(SPI_PINS_HSPI) {
 }
 
 bool SPIClass::pins(int8_t sck, int8_t miso, int8_t mosi, int8_t ss)

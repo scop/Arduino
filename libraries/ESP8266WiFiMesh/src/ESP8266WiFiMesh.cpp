@@ -30,12 +30,12 @@
 #define SERVER_PORT				4011
 
 ESP8266WiFiMesh::ESP8266WiFiMesh(uint32_t chip_id, std::function<String(String)> handler)
-: _server(SERVER_PORT)
+: _ssid(String( String( SSID_PREFIX ) + String( chip_id ) ))
+, _ssid_prefix(String( SSID_PREFIX ))
+, _chip_id(chip_id)
+, _handler(handler)
+, _server(SERVER_PORT)
 {
-	_chip_id = chip_id;
-	_ssid = String( String( SSID_PREFIX ) + String( _chip_id ) );
-	_ssid_prefix = String( SSID_PREFIX );
-	_handler = handler;
 }
 
 void ESP8266WiFiMesh::begin()
